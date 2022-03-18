@@ -1,4 +1,4 @@
-import Icon from '../icon';
+import Icon from '../../components/icon';
 export default {
     title: 'Service',
     name: 'service',

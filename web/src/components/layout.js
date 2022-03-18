@@ -144,6 +144,7 @@ export default function Layout({ sanityData, children }) {
         }}
       />
       <Helmet>
+        <link href="https://d1azc1qln24ryf.cloudfront.net/198172/ryno-lp-factory/style-cf.css" rel="stylesheet" type="text/css" />
         <script>
           {`
               window.dataLayer = window.dataLayer || [];
@@ -218,7 +219,7 @@ export default function Layout({ sanityData, children }) {
                 </Right>
             </Split> */}
       <Contact email={emailRecipients}>
-        <FullwidthForm recipients={email} isSplit="true" hasCLR={hasClr} />
+        <FullwidthForm recipients={emailRecipients} isSplit="true" hasCLR={hasClr} />
       </Contact>
       <Tagline {...{ tagline, lineColor, iconSrc }} />
       <Badges badges={badgeObjs} />

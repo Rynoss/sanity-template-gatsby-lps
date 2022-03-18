@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { LocationMarkerIcon } from '@heroicons/react/solid';
 
 export default function Locations({
-  locations,
+  locations = [],
   lineColor,
   serviceAreaBackground,
 }) {
-  locations = locations.map(({ location }) => location);
+  locations = locations?.map(({ location }) => location);
 
   let sortedLocations = locations.sort(function (locationA, locationB) {
     return locationA.city.localeCompare(locationB.city);
