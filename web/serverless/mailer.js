@@ -14,6 +14,8 @@ exports.handler = async function (event, context) {
   } = Object.fromEntries(new URLSearchParams(event.body));
 
   const url = event?.headers?.referer;
+  const hostname = event?.headers?.host;
+  const fromEmail = 'no-reply@' + hostname;
   const referralField = referral
     ? `<strong>Referral:</strong> ${referral}<br />`
     : '';
@@ -24,7 +26,8 @@ exports.handler = async function (event, context) {
   const msg = {
     to: recipientsArr,
     bcc: bccRecipients,
-    from: email, // Use the email address or domain you verified above
+    from: fromEmail, // Use the email address or domain you verified above
+    replyTo: email,
     subject: `PPC Form Submission - ${name}`,
     html: `
           <strong>Name:</strong> ${name}<br/>
