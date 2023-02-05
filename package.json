@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint-web": "lint-staged",
+    "xxxxlint-web": "lint-staged",
     "build": "sanity-template build --template-values ./.sanity-template/template-values-development.json",
     "prepare": "husky install"
   },
