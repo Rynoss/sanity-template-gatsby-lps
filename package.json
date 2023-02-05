@@ -20,5 +20,10 @@
   "homepage": "https://github.com/ryno-cmueller/lp-factory#readme",
   "devDependencies": {
     "sanity-template": "^2.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
