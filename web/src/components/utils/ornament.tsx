@@ -14,12 +14,18 @@ const CustomHR = styled.div`
 interface Props {
   iconSrc: string;
   alt?: string;
-  className: string;
+  className?: string;
 }
 
-export default function Ornament({ iconSrc, alt, className }: Props): JSX.Element {
+export default function Ornament({
+  iconSrc,
+  alt,
+  className,
+}: Props): JSX.Element {
   return (
-    <CustomHR className={`border-highlight grid gap-4 grid-cols-layout max-w-xs mx-auto mb-4 ${className}`}>
+    <CustomHR
+      className={`border-highlight grid gap-4 grid-cols-layout max-w-xs mx-auto mb-4 ${className}`}
+    >
       <img src={iconSrc} className={`max-w-[32px]`} alt={alt} />
     </CustomHR>
   );
