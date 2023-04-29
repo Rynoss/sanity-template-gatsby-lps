@@ -5,7 +5,7 @@ export default function Header({ logoSrc, phone }) {
     <header className="bg-white sticky top-0 z-10 shadow-[0_0_20px_0_rgba(0,0,0,.7)]">
       <div className="mx-auto flex flex-wrap laptop:items-center laptop:container">
         <div className="flex-none rounded-md w-full laptop:w-auto laptop:flex-1">
-          <img className="py-6 mx-auto laptop:mx-0" alt="logo" src={logoSrc} />
+          <img className="py-6 mx-auto laptop:mx-0 max-h-44" alt="logo" src={logoSrc} />
         </div>
         <div className="flex-none flex w-full phablet:flex-1 phablet:w-auto laptop:justify-end laptop:items-center">
           <a
