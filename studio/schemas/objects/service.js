@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../../components/icon';
 import bust from '../../utils/bust';
 import loadStyle from '../../utils/loadStyle';
-const icomoonPath = 'https://d1azc1qln24ryf.cloudfront.net/198172/ryno-lp-factory';
+const icomoonPath = 'https://cdn.icomoon.io/198172/ryno-lp-factory';
 
 //promise loads icomoon stylesheet for select option preview
 loadStyle(bust(`${icomoonPath}/style-cf.css`), 'icomoon');
