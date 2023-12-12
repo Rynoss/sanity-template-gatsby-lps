@@ -1,11 +1,10 @@
-import S from '@sanity/desk-tool/structure-builder';
 import { FiGlobe, FiMapPin, FiMap } from 'react-icons/fi';
 
 const hiddenDocTypes = (listItem) => {
   return !['serviceArea', 'locations'].includes(listItem.getId());
 };
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content')
     .items([
