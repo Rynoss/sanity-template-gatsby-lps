@@ -22,9 +22,30 @@ export default defineConfig({
         structure: deskStructure
     }),
     //"@sanity/color-input",
-    colorInput()
+    colorInput(),
     //"@sanity/dashboard",
-    //"dashboard-widget-netlify",
+    dashboardTool({
+        widgets: [
+          //"dashboard-widget-netlify",
+          netlifyWidget({
+              title: 'Netlify Deploys',
+              sites: [
+                //{
+                //  title: 'Sanity Studio',
+                //  apiId: 'xxxxx-yyyy-zzzz-xxxx-yyyyyyyy',
+                //  buildHookId: 'xxxyyyxxxyyyyxxxyyy',
+                //  name: 'sanity-gatsby-blog-20-studio',
+                //},
+                {
+                  title: 'Web Frontend',
+                  apiId: '<#<deployments.web.providerInfo.siteId>#>',
+                  buildHookId: '<#<deployments.web.providerInfo.buildHookId>#>',
+                  name: '<#<deployments.web.providerInfo.siteName>#>',
+                }
+              ]
+          })
+        ]
+      }),
     //"cloudinary",
     // Add '@sanity/vision' plugin for development environment if needed
   ],
