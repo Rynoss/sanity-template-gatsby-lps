@@ -5,6 +5,9 @@ import schemas from './schemas/schema'
 import deskStructure from './deskStructure'
 import Logo from "./plugins/ryno-studio-logo/Logo";
 import './styles/theme.css';
+import {colorInput} from '@sanity/color-input'
+
+
 
 export default defineConfig({
   title: "<#< sanity.projectTitle >#>",
@@ -17,8 +20,9 @@ export default defineConfig({
     //"@sanity/desk-tool",
     deskTool({
         structure: deskStructure
-    })
+    }),
     //"@sanity/color-input",
+    colorInput()
     //"@sanity/dashboard",
     //"dashboard-widget-netlify",
     //"cloudinary",
