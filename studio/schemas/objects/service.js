@@ -5,7 +5,7 @@ import loadStyle from '../../utils/loadStyle';
 const icomoonPath = 'https://cdn.icomoon.io/198172/ryno-lp-factory';
 
 //promise loads icomoon stylesheet for select option preview
-loadStyle(bust(`${icomoonPath}/style-cf.css`), 'icomoon');
+loadStyle(bust(`${icomoonPath}/style.css`), 'icomoon');
 
 export default {
   title: 'Service',
