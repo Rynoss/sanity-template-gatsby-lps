@@ -154,7 +154,7 @@ export default function Layout({ sanityData, children }) {
       />
       <Helmet>
         <link
-          href="https://cdn.icomoon.io/198172/ryno-lp-factory/style-cf.css"
+          href="https://cdn.icomoon.io/198172/ryno-lp-factory/style.css"
           rel="stylesheet"
           type="text/css"
         />
