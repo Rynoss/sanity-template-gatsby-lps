@@ -17,7 +17,9 @@ export default {
       name: 'icon',
       title: 'Icon',
       type: 'string',
-      inputComponent: Icon,
+      components: {
+        input: Icon,
+      },
       description: '',
       icomoonPath: icomoonPath,
     },
