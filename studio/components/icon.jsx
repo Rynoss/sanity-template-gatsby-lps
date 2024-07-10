@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useId } from 'react';
 import bust from '../utils/bust';
 import { FiSearch } from 'react-icons/fi';
-import { FormField } from '@sanity/base/components';
+import { FormField } from 'sanity';
 import {
   Select,
   TextInput,
@@ -14,8 +14,7 @@ import {
   Box,
   Avatar,
 } from '@sanity/ui';
-import PatchEvent, { set, unset } from '@sanity/form-builder/PatchEvent'; // utils send data back to sanity dataset
-import { useId } from '@reach/auto-id'; // hook to generate unique IDs
+import { set, unset, PatchEvent } from 'sanity';
 
 const Icon = React.forwardRef((props, ref) => {
   //creates react component
