@@ -8,7 +8,7 @@ import locations from './locations';
 import portableText from './objects/portableText';
 import figure from './objects/figure';
 import location from './objects/location';
-import service from './objects/service';
+import service from './objects/service.jsx';
 import colorOverides from './objects/colorOverrides';
 
 export default [

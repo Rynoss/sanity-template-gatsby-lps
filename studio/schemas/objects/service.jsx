@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../components/icon';
+import Icon from '../../components/icon.jsx';
 import bust from '../../utils/bust';
 import loadStyle from '../../utils/loadStyle';
 const icomoonPath = 'https://cdn.icomoon.io/198172/ryno-lp-factory';
