@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useDocumentOperation } from '@sanity/react-hooks';
-import sanityClient from '@sanity/client';
+import { useDocumentOperation } from 'sanity/react-hooks';
+import { createClient } from 'sanity';
 import slugify from 'slugify';
 
-const sanityClientConfig = {
-  projectId:
-    process.env.SANITY_STUDIO_API_PROJECT_ID || '<#< sanity.projectId >#>',
+// Initialize Sanity client for fetching field values (with updated v3 configuration)
+const client = createClient({
+  projectId: process.env.SANITY_STUDIO_API_PROJECT_ID || '<#< sanity.projectId >#>',
   dataset: process.env.SANITY_STUDIO_API_DATASET || '<#< sanity.dataset >#>',
   useCdn: false,
-};
+});
 
 export default function SetSlugAndPublishAction(props) {
   const { patch, publish } = useDocumentOperation(props.id, props.type);
@@ -28,9 +28,6 @@ export default function SetSlugAndPublishAction(props) {
     onHandle: async () => {
       // This will update the button text
       setIsPublishing(true);
-
-      /// Get the sanity client for fetching referenced field values
-      const client = sanityClient(sanityClientConfig);
 
       /// Set the initial slug value to the name field
       let slug = props.draft.label;
