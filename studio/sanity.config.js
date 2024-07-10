@@ -1,11 +1,12 @@
 // sanity.config.js
 import { defineConfig } from "sanity";
-import { deskTool } from 'sanity/desk'
-import schemas from './schemas/schema'
-import deskStructure from './deskStructure'
+import { deskTool } from 'sanity/desk';
+import { dashboardTool } from '@sanity/dashboard';
+import schemas from './schemas/schema';
+import deskStructure from './deskStructure';
 import Logo from "./plugins/ryno-studio-logo/Logo";
 import './styles/theme.css';
-import {colorInput} from '@sanity/color-input'
+import {colorInput} from '@sanity/color-input';
 import {cloudinarySchemaPlugin} from 'sanity-plugin-cloudinary';
 
 
