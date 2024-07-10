@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useId } from 'react';
 import { TextInput } from '@sanity/ui';
-import { FormField } from 'sanity';
-import { set, unset, PatchEvent } from 'sanity';
-// be sure to npm install @reach/auto-id
-import { useId } from '@reach/auto-id'; // hook to generate unique IDs
+import { FormField, set, unset, PatchEvent } from 'sanity';
 
 const Icon = React.forwardRef((props, ref) => {
   const {
