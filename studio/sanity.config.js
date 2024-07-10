@@ -8,7 +8,7 @@ import Logo from "./plugins/ryno-studio-logo/Logo";
 import './styles/theme.css';
 import {colorInput} from '@sanity/color-input';
 import {cloudinarySchemaPlugin} from 'sanity-plugin-cloudinary';
-
+import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 
 
 export default defineConfig({
