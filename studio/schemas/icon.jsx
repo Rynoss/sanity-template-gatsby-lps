@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
-import { FormField } from '@sanity/base/components';
 import { TextInput } from '@sanity/ui';
-import PatchEvent, { set, unset } from '@sanity/form-builder/PatchEvent';
+import { FormField } from 'sanity';
+import { set, unset, PatchEvent } from 'sanity';
 // be sure to npm install @reach/auto-id
 import { useId } from '@reach/auto-id'; // hook to generate unique IDs
 
