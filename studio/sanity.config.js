@@ -6,6 +6,7 @@ import deskStructure from './deskStructure'
 import Logo from "./plugins/ryno-studio-logo/Logo";
 import './styles/theme.css';
 import {colorInput} from '@sanity/color-input'
+import cloudinaryPlugin from 'sanity-plugin-cloudinary';
 
 
 
@@ -46,7 +47,7 @@ export default defineConfig({
           })
         ]
       }),
-    //"cloudinary",
+    cloudinaryPlugin(),
     // Add '@sanity/vision' plugin for development environment if needed
   ],
   schema: {
