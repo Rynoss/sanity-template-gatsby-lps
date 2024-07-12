@@ -4,3 +4,5 @@
     from = "/api/*"
     to = "/.netlify/functions/:splat"
     status = 200
+[build]
+  node_version = "14.18.0"
