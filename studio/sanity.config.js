@@ -9,7 +9,7 @@ import './styles/theme.css';
 import {colorInput} from '@sanity/color-input';
 import {cloudinarySchemaPlugin} from 'sanity-plugin-cloudinary';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
-
+import SetSlugAndPublishAction from './actions/setSlugAndPublishAction';
 
 export default defineConfig({
   title: "<#< sanity.projectTitle >#>",
@@ -58,5 +58,15 @@ export default defineConfig({
     components: {
         logo: Logo
     }
+  },
+  document: {
+    actions: (prev, context) => {
+      if (context.schemaType === 'page') {
+        return prev.map((originalAction) =>
+          originalAction.action === 'publish' ? SetSlugAndPublishAction : originalAction
+        );
+      }
+      return prev;
+    },
   }
 });
