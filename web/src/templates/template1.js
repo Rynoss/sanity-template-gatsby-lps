@@ -22,17 +22,17 @@ export const query = graphql`
       hero_hide_form
       _rawIntro
       intro {
+        _key
+        _type
+        style
+        listItem
+        level
         children {
           text
           marks
           _key
           _type
         }
-        _key
-        _rawChildren
-        _type
-        list
-        style
       }
       interlude_text
       category {

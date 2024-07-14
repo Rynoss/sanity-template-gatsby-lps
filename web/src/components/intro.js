@@ -17,58 +17,34 @@ const listRenderer = ({ type, children }) => {
   }
   return null;
 };
+
+const listItemRenderer = (props) => {
+  return <li className="leading-relaxed">{props.children}</li>;
+};
+
 const BlockRenderer = (props) => {
-  const { style = 'normal' } = props.node;
+  const { style = 'normal', listItem } = props.node;
   const isEmptyString = (child) => child === '';
-  if(!props.children.every(isEmptyString)) { // ensure the elements content is not empty
-    if (style === 'normal') {
+
+  if (!props.children.every(isEmptyString)) {
+    if (style === 'normal' && !listItem) {
       return <p className="text-[18px] mb-5 leading-relaxed">{props.children}</p>;
     }
-    if (style === 'h1') {
-      return (
-        <h1 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-5xl">
-          {props.children}
-        </h1>
-      );
-    }
-    if (style === 'h2') {
-      return (
-        <h2 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-4xl">
-          {props.children}
-        </h2>
-      );
-    }
-    if (style === 'h3') {
-      return (
-        <h3 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-3xl">
-          {props.children}
-        </h3>
-      );
-    }
-    if (style === 'h4') {
-      return (
-        <h4 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-2xl">
-          {props.children}
-        </h4>
-      );
-    }
-    if (style === 'h5') {
-      return (
-        <h5 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-xl">
-          {props.children}
-        </h5>
-      );
-    }
-    if (style === 'h6') {
-      return (
-        <h6 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-lg">
-          {props.children}
-        </h6>
+
+    if (style.startsWith('h')) {
+      const level = style.slice(1);
+      return React.createElement(
+        style,
+        {
+          className: `text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-${level * 1.5}xl`,
+        },
+        props.children
       );
     }
   }
   return BlockContent.defaultSerializers.types.block(props); // Fall back to default handling
 };
+
 const FigureRenderer = ({ node }) => {
   const imageAssetId = node?.image?.asset?._ref;
   const imageData = getGatsbyImageData(
@@ -90,6 +66,7 @@ const FigureRenderer = ({ node }) => {
     />
   );
 };
+
 export default function Intro({ introText, introImage }) {
   return (
     <section
@@ -107,9 +84,7 @@ export default function Intro({ introText, introImage }) {
                   //figure: FigureRenderer,
                 },
                 list: listRenderer,
-                listItem: ({ children }) => (
-                  <li className="leading-relaxed">{children}</li>
-                ),
+                listItem: listItemRenderer,
               }}
             />
           </div>
@@ -123,13 +98,13 @@ export default function Intro({ introText, introImage }) {
           </div>
         </div>
         <div className="text-center laptop:text-left">
-            <a
-              className="button--primary inline-block text-center mt-5 rounded-xl text-xl font-black px-8 py-3 uppercase phablet:text-2xl phablet:inline-block"
-              href="#contact"
-              title="Contact Us"
-            >
-              Request Service
-            </a>
+          <a
+            className="button--primary inline-block text-center mt-5 rounded-xl text-xl font-black px-8 py-3 uppercase phablet:text-2xl phablet:inline-block"
+            href="#contact"
+            title="Contact Us"
+          >
+            Request Service
+          </a>
         </div>
       </div>
     </section>
