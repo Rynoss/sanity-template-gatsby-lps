@@ -1,95 +1,71 @@
 import React from 'react';
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import clientConfig from '../../client-config';
 
-const listRenderer = ({ type, children }) => {
-  if (type === 'bullet') {
-    return (
-      <ul className="list-disc list-inside text-[18px] mb-5">{children}</ul>
-    );
-  }
-  if (type === 'number') {
-    return (
-      <ol className="list-decimal list-inside text-[18px] mb-5">{children}</ol>
-    );
-  }
-  return null;
-};
-
+// Custom List Item Renderer
 const listItemRenderer = ({ children }) => {
   return <li className="leading-relaxed">{children}</li>;
 };
 
-const BlockRenderer = ({ node, children }) => {
-  const { style = 'normal' } = node;
-  const isEmptyString = (child) => child === '';
-
-  if (!children.every(isEmptyString)) {
-    if (style === 'normal') {
-      return <p className="text-[18px] mb-5 leading-relaxed">{children}</p>;
-    }
-
-    if (style === 'h1') {
-      return (
-        <h1 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-5xl">
-          {children}
-        </h1>
-      );
-    }
-
-    if (style === 'h2') {
-      return (
-        <h2 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-4xl">
-          {children}
-        </h2>
-      );
-    }
-
-    if (style === 'h3') {
-      return (
-        <h3 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-3xl">
-          {children}
-        </h3>
-      );
-    }
-
-    if (style === 'h4') {
-      return (
-        <h4 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-2xl">
-          {children}
-        </h4>
-      );
-    }
-
-    if (style === 'h5') {
-      return (
-        <h5 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-xl">
-          {children}
-        </h5>
-      );
-    }
-
-    if (style === 'h6') {
-      return (
-        <h6 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-lg">
-          {children}
-        </h6>
-      );
-    }
-  }
-  return BlockContent.defaultSerializers.types.block({ node, children }); // Fall back to default handling
+// Custom List Renderer
+const listRenderer = {
+  bullet: ({ children }) => (
+    <ul className="list-disc list-inside text-[18px] mb-5">{children}</ul>
+  ),
+  number: ({ children }) => (
+    <ol className="list-decimal list-inside text-[18px] mb-5">{children}</ol>
+  ),
 };
 
-const FigureRenderer = ({ node }) => {
-  const imageAssetId = node?.image?.asset?._ref;
+// Block Components
+const blockComponents = {
+  block: {
+    normal: ({ children }) => <p className="text-[18px] mb-5 leading-relaxed">{children}</p>,
+    h1: ({ children }) => (
+      <h1 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-5xl">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-4xl">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-3xl">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-2xl">
+        {children}
+      </h4>
+    ),
+    h5: ({ children }) => (
+      <h5 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-xl">
+        {children}
+      </h5>
+    ),
+    h6: ({ children }) => (
+      <h6 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-lg">
+        {children}
+      </h6>
+    ),
+  },
+  list: listRenderer,
+  listItem: listItemRenderer,
+};
+
+const FigureRenderer = ({ value }) => {
+  const imageAssetId = value?.image?.asset?._ref;
   const imageData = getGatsbyImageData(
     imageAssetId,
     { maxWidth: 675 },
     clientConfig.sanity
   );
-  const imageAlignment = node?.alignment;
+  const imageAlignment = value?.alignment;
   const floats = {
     left: 'tablet:float-left',
     right: 'tablet:float-right',
@@ -113,15 +89,13 @@ export default function Intro({ introText, introImage }) {
       <div className="container mx-auto">
         <div className="flex flex-col text-lg laptop:flex-row tablet:gap-4">
           <div className="laptop:basis-2/3">
-            <BlockContent
-              blocks={introText}
-              serializers={{
+            <PortableText
+              value={introText}
+              components={{
+                ...blockComponents,
                 types: {
-                  block: BlockRenderer,
-                  //figure: FigureRenderer,
+                  image: FigureRenderer,
                 },
-                list: listRenderer,
-                listItem: listItemRenderer,
               }}
             />
           </div>
