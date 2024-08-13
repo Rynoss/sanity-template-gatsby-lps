@@ -153,6 +153,7 @@ export default function Layout({ sanityData, children }) {
         }}
       />
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <link
           href="https://cdn.icomoon.io/198172/ryno-lp-factory/style.css"
           rel="stylesheet"
