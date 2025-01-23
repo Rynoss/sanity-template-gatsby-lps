@@ -1,8 +1,8 @@
-import styles from './studioLogo.css';
+import './studioLogo.css';
 
 const myLogo = () => (
   <img
-    className={styles.studioLogo}
+    className="studioLogo"
     src="https://rynoss.com/wp-content/uploads/RYNOfav.png"
     alt="RYNOSS"
   />
