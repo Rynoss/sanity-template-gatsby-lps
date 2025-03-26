@@ -21,6 +21,9 @@
     "check-format": "npm run prettier -- --list-different"
   },
   "dependencies": {
+    "@rynoss/lp-tracking-portal-adapter": "^0.9.0",
+    "rollbar": "^2.26.4",
+    "sourcebuster": "^1.0.1",
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^3.2.1",
     "gatsby-plugin-image": "^1.2.0",
