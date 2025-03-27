@@ -68,9 +68,11 @@ export function handleSubmit(event) {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
+      credentials: 'same-origin',
     }
     Promise.allSettled([
       fetch('/api/mailer', payload),
+      fetch('/api/tracker', payload),
       fetch('/', payload)  
     ])
       .then(this.handleFetchErrors) //extra step due to error handling with Fetch
