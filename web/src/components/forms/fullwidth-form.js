@@ -151,7 +151,7 @@ export default class FullwidthForm extends React.Component {
           </div>
         </div>
         <SubmitButton
-          text={'Submit'}
+          text={'Submit Form'}
           className={'button--primary block mx-auto mt-3 text-[22px]'}
         />
         <FeedbackBox
