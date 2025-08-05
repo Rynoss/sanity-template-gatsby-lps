@@ -40,10 +40,12 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${({ reviewBgColor }) => reviewBgColor};
         color: ${({ reviewBgColor }) => getContrastingColor(reviewBgColor)};
         &-bubble {
-            background-color: #FFF;
-            color: #2A2728;
+            background-color: ${({ reviewBubbleColor }) => reviewBubbleColor};
+            color: ${({ reviewBubbleColor }) =>
+              getContrastingColor(reviewBubbleColor)};
             &:after {
-                border-top: 30px solid #FFF;
+                border-top: 30px solid ${({ reviewBubbleColor }) =>
+                  reviewBubbleColor};
             }
         }
     }
@@ -68,13 +70,10 @@ const GlobalStyle = createGlobalStyle`
         }
     }
     .border-highlight, .border-highlight:after, .border-highlight:before {
-        border-color: #878787;
+        border-color: ${({ lineColor }) => lineColor};
     }
     .text--secondary {
         color: ${({ headingTextColor }) => headingTextColor};
-    }
-    .default--header {
-        color: #242424;
     }
     .icon-color {
         color: ${({ iconColor }) => iconColor};

@@ -45,7 +45,7 @@ export default function HeroSection({
         >
           <div className="bg--form min-w-0 py-6 pb-12 px-9 rounded-md relative tablet:-mb-8 tablet:mt-16 desktop:mt-34 desktop:-mb-16">
             <div className="uppercase text-center text-3xl font-extrabold mb-5">
-              Contact Us
+              Schedule Now
             </div>
             {children}
           </div>

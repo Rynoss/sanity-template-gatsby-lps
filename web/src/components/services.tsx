@@ -24,7 +24,7 @@ export default function Services({
     >
       <div className="container mx-auto text-center">
         <Ornament {...{ lineColor, iconSrc }} alt={'Company Icon'} />
-        <h2 className="default--header text-magic font-extrabold mb-8 phablet:text-4xl tablet:mb-14 tablet:text-5xl">
+        <h2 className="text--secondary text-magic font-extrabold mb-8 phablet:text-4xl tablet:mb-14 tablet:text-5xl">
           We Can Assist You With:
         </h2>
         <div className="flex flex-wrap gap-7 justify-center mx-auto">
@@ -53,7 +53,7 @@ export default function Services({
           href="#contact"
           title="Contact Us"
         >
-          Contact Us?
+          Ready To Contact Us?
         </a>
       </div>
     </section>

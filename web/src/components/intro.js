@@ -24,7 +24,7 @@ const blockComponents = {
   block: {
     normal: ({ children }) => <p className="text-[18px] mb-5 leading-relaxed">{children}</p>,
     h1: ({ children }) => (
-      <h1 className="default--header text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-5xl">
+      <h1 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-5xl">
         {children}
       </h1>
     ),
