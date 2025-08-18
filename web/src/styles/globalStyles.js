@@ -40,10 +40,11 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${({ reviewBgColor }) => reviewBgColor};
         color: ${({ reviewBgColor }) => getContrastingColor(reviewBgColor)};
         &-bubble {
-            background-color: #FFF;
-            color: #2A2728;
+            background-color: white;
+            color: ${({ reviewBubbleColor }) =>
+              getContrastingColor(reviewBubbleColor)};
             &:after {
-                border-top: 30px solid #FFF;
+                border-top: 30px solid white;
             }
         }
     }
@@ -67,14 +68,17 @@ const GlobalStyle = createGlobalStyle`
               lightenDarkenColor(secondaryBtnColor, 20)}; 
         }
     }
-    .border-highlight, .border-highlight:after, .border-highlight:before {
-        border-color: #878787;
-    }
-    .text--secondary {
-        color: ${({ headingTextColor }) => headingTextColor};
+    .border-highlight {
+        border-color: ${({ primaryColor }) => primaryColor};
+        &:after, &:before {
+            border-color: #878787;
+        }
     }
     .default--header {
         color: #242424;
+    }
+    .text--secondary {
+        color: ${({ headingTextColor }) => headingTextColor};
     }
     .icon-color {
         color: ${({ iconColor }) => iconColor};

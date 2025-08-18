@@ -23,8 +23,8 @@ export default function Services({
       className="bg-gray-custom text-gray-alt py-12 tablet:pt-24 tablet:pb-36"
     >
       <div className="container mx-auto text-center">
-        <Ornament {...{ lineColor, iconSrc }} alt={'Company Icon'} />
-        <h2 className="default--header text-magic font-extrabold mb-8 phablet:text-4xl tablet:mb-14 tablet:text-5xl">
+        <Ornament {...{ lineColor, iconSrc }} alt={'Company Icon'} className={'mb-4'} />
+        <h2 className="default--header text-magic font-bold mb-8 phablet:text-4xl tablet:mb-14 tablet:text-5xl">
           We Can Assist You With:
         </h2>
         <div className="flex flex-wrap gap-7 justify-center mx-auto">
@@ -49,11 +49,11 @@ export default function Services({
           })}
         </div>
         <a
-          className="button--primary uppercase rounded-2xl px-11 mt-8 py-5 text-normal font-black mx-auto inline-block phablet:text-2xl laptop:mt-12"
+          className="button--primary rounded-lg inline-block font-extrabold cursor-pointer mt-[55px] mx-auto px-[44px] py-[10px] text-[22px]"
           href="#contact"
           title="Contact Us"
         >
-          Contact Us?
+          Contact Us
         </a>
       </div>
     </section>

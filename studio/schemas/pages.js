@@ -92,9 +92,8 @@ export default {
     },
     {
       name: 'interlude_text',
-      title: 'Text',
-      type: 'array',
-      of: [{ type: 'text' }],
+      title: 'Interlude Text',
+      type: 'portableText',
       fieldset: 'interlude',
     },
     {
@@ -113,6 +112,12 @@ export default {
     {
       name: 'interlude_image_override',
       title: 'Interlude Image Override',
+      type: 'cloudinary.asset',
+      fieldset: 'category_overrides',
+    },
+    {
+      name: 'callout_image_override',
+      title: 'Callout Image Override',
       type: 'cloudinary.asset',
       fieldset: 'category_overrides',
     },

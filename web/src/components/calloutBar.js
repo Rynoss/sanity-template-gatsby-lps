@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function CalloutBar({
   calloutMessage,
-  calloutImage,
+  calloutImageSrc,
   calloutGradient,
 }) {
   const gradientType = calloutGradient ? 'radial' : 'linear';
@@ -13,9 +13,9 @@ export default function CalloutBar({
     >
       <div className="container mx-auto flex flex-col py-8 items-center laptop:flex-row">
         <div className="flex-none">
-          <img className="mb-8 laptop:mb-0" src={calloutImage} alt="" />
+          <img className="mb-8 laptop:mb-0" src={calloutImageSrc} alt="" />
         </div>
-        <div className="flex-1 ml-[80px] text-[26px] font-semibold tablet:text-2xl">
+        <div className="flex-1 ml-[80px] text-[26px] font-[600px] tablet:text-2xl text-white">
           {calloutMessage}
         </div>
       </div>

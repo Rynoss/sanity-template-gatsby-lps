@@ -1,6 +1,7 @@
 import React from 'react';
+import SchedulerButton from './utils/conditionalSchedulerButton';
 
-export default function Header({ logoSrc, phone }) {
+export default function Header({ logoSrc, phone, useScheduleEngine }) {
   return (
     <header className="bg-white sticky top-0 z-10 shadow-[0_0_20px_0_rgba(0,0,0,.7)]">
       <div className="mx-auto flex flex-wrap laptop:items-center laptop:container">
@@ -8,13 +9,11 @@ export default function Header({ logoSrc, phone }) {
           <img className="py-6 mx-auto laptop:mx-0 max-h-44" alt="logo" src={logoSrc} />
         </div>
         <div className="flex-none flex w-full phablet:flex-1 phablet:w-auto laptop:justify-end laptop:items-center">
-          <a
-            className={`button--secondary flex justify-center items-center w-full font-bold text-[22px] uppercase px-8 py-3 laptop:px-12 laptop:inline-block laptop:w-auto laptop:rounded-lg`}
-            href="#contact"
-            title="Schedule Now"
-          >
-            Schedule Now
-          </a>
+          <SchedulerButton
+            className={'button--secondary flex justify-center flex-col items-center w-full font-semibold text-[22px] px-8 py-3 laptop:px-12 laptop:inline-block laptop:w-auto laptop:rounded-lg'}
+            text={'Schedule Online'}
+            useScheduleEngine={useScheduleEngine}
+          />
         </div>
         <div className="flex-1 flex items-center laptop:flex-initial laptop:justify-end">
           <a

@@ -39,7 +39,7 @@ function pluckOverride(pageData, categoryData) {
   }
 }
 
-export default function Layout({ sanityData, children }) {
+export default function Layout({ sanityData, sanityGlobalConfig, children }) {
   //overwriteable per page
   const address =
     sanityData?.company_overrides?.address ||
@@ -65,6 +65,9 @@ export default function Layout({ sanityData, children }) {
   const interludeImageSrc = 
     sanityData?.interlude_image_override?.secure_url ||
     sanityData?.category?.interlude_image?.secure_url;
+  const calloutImageSrc = 
+    sanityData?.callout_image_override?.secure_url ||
+    sanityData?.category?.callout_image?.secure_url;
   const tagline =
     sanityData?.company_overrides?.tagline ||
     sanityData?.category?.companyInfo?.tagline;
@@ -89,19 +92,20 @@ export default function Layout({ sanityData, children }) {
   const heroTitle = sanityData?.hero_special?.title;
   const heroSubTitle = sanityData?.hero_special?.details;
   const heroContent = sanityData?.hero_special?.disclaimer;
+  const heroContentTwo = sanityData?.hero_special?.secondaryDisclaimer;
   const heroHideForm = sanityData?.hero_hide_form;
   const calloutMessage = sanityData?.category?.calloutMessage;
-  const calloutImage = sanityData?.category?.callout_image?.secure_url;
   const calloutGradient = sanityData?.category?.calloutGradient;
   const introText = sanityData?._rawIntro;
   const services = sanityData?.category?.services;
   const testimonialBackground =
   sanityData?.category?.testimonialBackground?.secure_url;
-  const interludeText = sanityData?.interlude_text;
+  const interludeText = sanityData?._rawInterludeText;
   const serviceAreaBackground =
     sanityData?.category?.serviceAreaBackground?.secure_url;
   const badgeObjs = sanityData?.category?.badges;
   const hasClr = sanityData?.category?.companyInfo?.hasClr;
+  const scheduleEngineAPIKey = sanityData?.category?.scheduleEngineAPIKey;
   //colors
   const primaryColor = sanityData?.category?.primaryColor?.hex;
   const secondaryColor = sanityData?.category?.secondaryColor?.hex;
@@ -160,6 +164,14 @@ export default function Layout({ sanityData, children }) {
           type="text/css"
         />
         <link rel="icon" href={iconSrc} />
+        {scheduleEngineAPIKey && (
+          <script
+              data-api-key={scheduleEngineAPIKey}
+              data-defer="true"
+              id="se-widget-embed"
+              src="https://embed.scheduleengine.net/schedule-engine-v3.js"
+          />
+        )}
         <script>
           {`
               window.dataLayer = window.dataLayer || [];
@@ -181,7 +193,7 @@ export default function Layout({ sanityData, children }) {
           `}
         </script>
       </Helmet>
-      <Header {...{ logoSrc, phone }} />
+      <Header logoSrc={logoSrc} phone={phone} useScheduleEngine={!!scheduleEngineAPIKey} />
       <Hero
         {...{
           heroBackground,
@@ -190,6 +202,7 @@ export default function Layout({ sanityData, children }) {
           heroSubTitle,
           emailRecipients,
           heroContent,
+          heroContentTwo,
           hasClr,
           heroHideForm,
         }}
@@ -197,7 +210,7 @@ export default function Layout({ sanityData, children }) {
         <SidebarForm recipients={emailRecipients} hasClr={hasClr} />
       </Hero>
       <Intro {...{ introText, introImage }} />
-      <CalloutBar {...{ calloutMessage, calloutImage, calloutGradient }} />
+      <CalloutBar {...{ calloutMessage, calloutImageSrc, calloutGradient }} />
       <Services {...{ lineColor, services, iconSrc }} />
       <Testimonials
         {...{

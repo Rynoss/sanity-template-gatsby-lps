@@ -18,6 +18,7 @@ export const query = graphql`
         title
         details
         disclaimer
+        secondaryDisclaimer
       }
       hero_hide_form
       _rawIntro
@@ -34,7 +35,20 @@ export const query = graphql`
           _type
         }
       }
-      interlude_text
+      _rawInterludeText
+      interlude_text {
+        _key
+        _type
+        style
+        listItem
+        level
+        children {
+          text
+          marks
+          _key
+          _type
+        }
+      }
       category {
         companyInfo {
           logo {
@@ -67,6 +81,7 @@ export const query = graphql`
         formConversionLabel
         layout
         phoneConversionLabel
+        scheduleEngineAPIKey
         primaryColor {
           hex
         }
@@ -132,6 +147,7 @@ export const query = graphql`
         specials {
           title
           disclaimer
+          secondaryDisclaimer
           details
         }
         badges {
@@ -160,6 +176,9 @@ export const query = graphql`
         secure_url
       }
       interlude_image_override {
+        secure_url
+      }
+      callout_image_override {
         secure_url
       }
       testimonials_override {

@@ -10,6 +10,7 @@ export default function HeroSection({
   heroTitle,
   heroSubTitle,
   heroContent,
+  heroContentTwo,
   children,
   heroHideForm,
 }) {
@@ -21,19 +22,22 @@ export default function HeroSection({
     >
       <div className="container mx-auto flex gap-4 justify-center tablet:gap-8 laptop:gap-12 laptop:justify-between">
         <div className="text-white flex flex-col justify-center basis-full">
-          <div className="uppercase flex flex-col gap-7">
+          <div className="flex flex-col gap-7">
             <a
               href="#specials"
               className="border-highlight border-2 border-dashed rounded-2xl p-5 bg-black/50 text-center"
             >
-              <div className="font-extrabold leading-none text-2xl phablet:leading-snug phablet:text-4xl tablet:leading-snug laptop:text-6xl desktop:leading-tight">
+              <div className="font-extrabold leading-none text-[60px] phablet:leading-snug phablet:text-4xl tablet:leading-snug laptop:text-6xl desktop:leading-tight">
                 {heroTitle}
               </div>
-              <div className="font-semibold phablet:text-4xl tablet:inline-block desktop:text-5xl">
+              <div className="font-semibold phablet:text-4xl tablet:inline-block desktop:text-[36px]">
                 {heroSubTitle}
               </div>
-              <div className="font-semibold text-base leading-none text-center tablet:font-normal tablet:text-xl">
+              <div className="font-normal text-[16px] mt-[10px] leading-none text-center tablet:font-normal">
                 {heroContent}
+              </div>
+              <div className="font-normal text-[14px] mt-[10px] leading-none text-center tablet:font-normal">
+                {heroContentTwo}
               </div>
             </a>
           </div>
@@ -44,7 +48,7 @@ export default function HeroSection({
           } max-w-sm self-end laptop:align-bottom laptop:pt-1`}
         >
           <div className="bg--form min-w-0 py-6 pb-12 px-9 rounded-md relative tablet:-mb-8 tablet:mt-16 desktop:mt-34 desktop:-mb-16">
-            <div className="uppercase text-center text-3xl font-extrabold mb-5">
+            <div className="uppercase text-center text-3xl font-extrabold mb-5 text-white">
               Contact Us
             </div>
             {children}
