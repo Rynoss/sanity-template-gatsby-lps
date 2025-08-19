@@ -45,7 +45,7 @@ export default function Testimonials({
   const renderSlides = () =>
     testimonials.map((testimonial, index) => (
       <blockquote className="px-3" key={index}>
-        <Bubble className="bg--reviews-bubble rounded-2xl p-8 text-lg font-medium relative mb-10">
+        <Bubble className="bg--reviews-bubble rounded-2xl p-8 text-lg text-[15px] font-[400] relative mb-10">
           <div className="custom-scroller overflow-y-auto h-32 px-1">
             "{testimonial.excerpt}"
           </div>
@@ -96,7 +96,7 @@ export default function Testimonials({
       className="bg--reviews bg-no-repeat bg-top py-14 text-white laptop:pb-36 laptop:py-24 desktop:bg-cover"
     >
       <div className="container mx-auto">
-        <Ornament {...{ iconSrc, lineColor }} alt={'Review Icon'} />
+        <Ornament {...{ iconSrc, lineColor }} alt={'Review Icon'} className={'mb-4'} />
         <h2 className="text-center text-magic font-extrabold mb-9 tablet:text-4xl laptop:text-5xl laptop:mb-12">
           Our Customer Reviews
         </h2>

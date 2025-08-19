@@ -26,6 +26,12 @@ export default {
       type: 'string',
       description: '',
     },
+    {
+      name: 'secondaryDisclaimer',
+      title: 'Secondary Disclaimer (optional)',
+      type: 'string',
+      description: '',
+    },
   ],
   preview: {
     select: {

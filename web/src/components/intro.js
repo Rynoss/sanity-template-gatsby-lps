@@ -24,7 +24,7 @@ const blockComponents = {
   block: {
     normal: ({ children }) => <p className="text-[18px] mb-5 leading-relaxed">{children}</p>,
     h1: ({ children }) => (
-      <h1 className="text--secondary text-magic leading-tight font-extrabold mb-8 phablet:text-3xl laptop:text-5xl">
+      <h1 className="default--header text-magic leading-tight font-bold mb-8 phablet:text-3xl laptop:text-5xl">
         {children}
       </h1>
     ),
@@ -110,11 +110,11 @@ export default function Intro({ introText, introImage }) {
         </div>
         <div className="text-center laptop:text-left">
           <a
-            className="button--primary inline-block text-center mt-5 rounded-xl text-xl font-black px-8 py-3 uppercase phablet:text-2xl phablet:inline-block"
+            className="button--primary rounded-lg inline-block text-center font-bold px-[44px] py-[10px] text-[22px]"
             href="#contact"
             title="Contact Us"
           >
-            Request Service
+            Contact Us
           </a>
         </div>
       </div>
