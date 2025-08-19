@@ -15,7 +15,7 @@ export default function CalloutBar({
         <div className="flex-none">
           <img className="mb-8 laptop:mb-0" src={calloutImageSrc} alt="" />
         </div>
-        <div className="flex-1 ml-[80px] text-[26px] font-[600px] tablet:text-2xl text-white">
+        <div className="flex-1 ml-[80px] text-[26px] font-[600px] tablet:text-2xl">
           {calloutMessage}
         </div>
       </div>
