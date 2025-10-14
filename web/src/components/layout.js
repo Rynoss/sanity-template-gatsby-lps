@@ -39,14 +39,14 @@ function pluckOverride(pageData, categoryData) {
   }
 }
 
-export default function Layout({ sanityData, sanityGlobalConfig, children }) {
+export default function Layout({ sanityData, children }) {
   //overwriteable per page
   const address =
     sanityData?.company_overrides?.address ||
     sanityData?.category?.companyInfo?.address;
   const company =
-    sanityData?.company_overrides?.company ||
-    sanityData?.category?.companyInfo?.company;
+    sanityData?.company_overrides?.company || //page level
+    sanityData?.category?.companyInfo?.company; //category level
   const phone =
     sanityData?.company_overrides?.phone ||
     sanityData?.category?.companyInfo?.phone;
