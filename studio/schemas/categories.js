@@ -10,6 +10,11 @@ export default {
       title: 'Meta',
       description: 'Category level hidden page information.',
     },
+    {
+      name: 'scheduler',
+      title: 'Scheduler',
+      description: 'Scheduler Configuration',
+    },
     { name: 'styles', title: 'Styles' },
     { name: 'imagery', title: 'Imagery' },
     { name: 'callout', title: 'Callout Bar' },
@@ -82,6 +87,20 @@ export default {
       type: 'string',
       description: '',
       fieldset: 'meta',
+    },
+    {
+      name: 'enableScheduler',
+      title: 'Enable Scheduler',
+      type: 'boolean',
+      fieldset: 'scheduler',
+    },
+    {
+      name: 'scheduleEngineAPIKey',
+      title: 'Schedule Engine API Key (Service Titan Scheduler Pro)',
+      type: 'string',
+      description: '',
+      fieldset: 'scheduler',
+      hidden: ({ parent }) => !parent?.enableScheduler,
     },
     {
       name: 'primaryColor',
