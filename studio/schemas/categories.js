@@ -15,6 +15,11 @@ export default {
       title: 'Scheduler',
       description: 'Scheduler Configuration',
     },
+    {
+      name: 'osano',
+      title: 'Osano',
+      description: 'Osano Configuration',
+    },
     { name: 'styles', title: 'Styles' },
     { name: 'imagery', title: 'Imagery' },
     { name: 'callout', title: 'Callout Bar' },
