@@ -106,6 +106,8 @@ export default function Layout({ sanityData, children }) {
   const badgeObjs = sanityData?.category?.badges;
   const hasClr = sanityData?.category?.companyInfo?.hasClr;
   const scheduleEngineAPIKey = sanityData?.category?.scheduleEngineAPIKey;
+  const osanoKey = sanityData?.category?.osanoKey;
+  const showCookiePreferenceLink = osanoKey ? true : false;
   //colors
   const primaryColor = sanityData?.category?.primaryColor?.hex;
   const secondaryColor = sanityData?.category?.secondaryColor?.hex;
@@ -192,6 +194,9 @@ export default function Layout({ sanityData, children }) {
               })(window,document,'script','dataLayer','${gtmId}');
           `}
         </script>
+        {/* START COOKIE SCRIPT */}
+        <script src={`https://cmp.osano.com/a1FYsvjafY/${osanoKey}/osano.js`}></script>
+        {/* END COOKIE SCRIPT */}
       </Helmet>
       <Header logoSrc={logoSrc} phone={phone} useScheduleEngine={!!scheduleEngineAPIKey} />
       <Hero
@@ -252,7 +257,7 @@ export default function Layout({ sanityData, children }) {
       </Contact>
       <Tagline {...{ tagline, lineColor, iconSrc }} />
       <Badges badges={badgeObjs} />
-      <Footer {...{ company, address, phone }} />
+      <Footer {...{ company, address, phone, showCookiePreferenceLink }} />
     </>
   );
 }

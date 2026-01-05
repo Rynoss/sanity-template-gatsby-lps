@@ -103,6 +103,20 @@ export default {
       hidden: ({ parent }) => !parent?.enableScheduler,
     },
     {
+      name: 'enableOsano',
+      title: 'Enable Osano',
+      type: 'boolean',
+      fieldset: 'osano',
+    },
+    {
+      name: 'osanoKey',
+      title: 'Osano Key',
+      type: 'string',
+      description: '',
+      fieldset: 'osano',
+      hidden: ({ parent }) => !parent?.enableOsano,
+    },
+    {
       name: 'primaryColor',
       title: 'Primary color',
       type: 'color',

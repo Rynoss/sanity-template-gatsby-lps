@@ -1,12 +1,14 @@
 import React from 'react';
 
-export default function Footer({ company, address, phone }) {
+export default function Footer({ company, address, phone, showCookiePreferenceLink }) {
   const year = new Date().getFullYear();
   const phoneLink = <a href={`tel:${phone}`}>{phone}</a>;
+  const cookiePreferenceLink = <a className="underline cursor-pointer" onClick={(e) => {e.preventDefault(); Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')}}>Cookie Preferences</a>
   return (
     <footer className="text-center text-gray-alt text-sm pb-12 pt-6">
       <p>
         &copy; {year} {company} {address ? `| ${address}` : ''}
+        {showCookiePreferenceLink ? [' | ', cookiePreferenceLink] : ''}
       </p>
       <p>
          {phone ? ['Call Us Today – ', phoneLink, ' |'] : ''} Marketing by{' '}

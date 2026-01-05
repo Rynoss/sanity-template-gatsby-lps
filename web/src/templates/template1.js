@@ -82,6 +82,7 @@ export const query = graphql`
         layout
         phoneConversionLabel
         scheduleEngineAPIKey
+        osanoKey
         primaryColor {
           hex
         }
