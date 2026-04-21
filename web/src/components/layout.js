@@ -198,7 +198,7 @@ export default function Layout({ sanityData, children }) {
         <script src={`https://cmp.osano.com/a1FYsvjafY/${osanoKey}/osano.js`}></script>
         {/* END COOKIE SCRIPT */}
         {/* START RPX HORN SCRIPT */}
-        <script defer="defer" src="https://cdn.rynopowered.com/js/horn/v1/latest" id="rpx-horn-js"></script>
+        <script async src="https://cdn.rynopowered.com/js/horn/v1/latest"></script>
         {/* END RPX HORN SCRIPT */}
       </Helmet>
       <Header logoSrc={logoSrc} phone={phone} useScheduleEngine={!!scheduleEngineAPIKey} />
