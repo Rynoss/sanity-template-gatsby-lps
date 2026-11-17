@@ -198,7 +198,25 @@ export default function Layout({ sanityData, children }) {
         <script src={`https://cmp.osano.com/a1FYsvjafY/${osanoKey}/osano.js`}></script>
         {/* END COOKIE SCRIPT */}
         {/* START RPX HORN SCRIPT */}
-        <script async src="https://cdn.rynopowered.com/js/horn/v1/latest"></script>
+        <script>
+          {`
+            (function(){
+              var registrableDomain = location.hostname.replace(/^www\\./, '').split('.').slice(-2).join('.');
+              var primaryHost = 't-polaris.' + registrableDomain;
+              var fallbackSource = 'https://cdn.project-polaris.com/t/latest.js';
+              var primaryScript = document.createElement('script');
+              primaryScript.src = 'https://' + primaryHost + '/t/latest.js';
+              primaryScript.async = true;
+              primaryScript.onerror = function(){
+                var fallbackScript = document.createElement('script');
+                fallbackScript.src = fallbackSource;
+                fallbackScript.async = true;
+                (document.head || document.documentElement).appendChild(fallbackScript);
+              };
+              (document.head || document.documentElement).appendChild(primaryScript);
+            })();
+          `}
+        </script>
         {/* END RPX HORN SCRIPT */}
       </Helmet>
       <Header logoSrc={logoSrc} phone={phone} useScheduleEngine={!!scheduleEngineAPIKey} />
