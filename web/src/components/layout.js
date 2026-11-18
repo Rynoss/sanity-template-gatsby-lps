@@ -197,7 +197,7 @@ export default function Layout({ sanityData, children }) {
         {/* START COOKIE SCRIPT */}
         <script src={`https://cmp.osano.com/a1FYsvjafY/${osanoKey}/osano.js`}></script>
         {/* END COOKIE SCRIPT */}
-        {/* START RPX HORN SCRIPT */}
+        {/* START POLARIS PIXEL SCRIPT */}
         <script>
           {`
             (function(){
@@ -217,7 +217,7 @@ export default function Layout({ sanityData, children }) {
             })();
           `}
         </script>
-        {/* END RPX HORN SCRIPT */}
+        {/* END POLARIS PIXEL SCRIPT */}
       </Helmet>
       <Header logoSrc={logoSrc} phone={phone} useScheduleEngine={!!scheduleEngineAPIKey} />
       <Hero
